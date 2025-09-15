@@ -1,21 +1,47 @@
+// src/com/school/Main.java
 package com.school;
 
-public class Main{
-    public static void main(String[] args){
-        Student[] student = new Student[2];
-        student[0] = new Student("Tom");
-        student[1] = new Student("Karl");
-        Course[] course = new Course[2];
-        course[0] = new Course("abc");
-        course[1] = new Course("abd");
+import java.util.ArrayList;
+import java.util.List;
 
-        for(Student s: student){
-            s.display();
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Attendance Management System!");
+
+        // Students
+        Student[] students = {
+            new Student("Husky"),
+            new Student("Minnu"),
+            new Student("Supp"),
+            new Student("Bhanu")
+        };
+
+        // Courses
+        Course[] courses = {
+            new Course("DBMS"),
+            new Course("OOPS"),
+            new Course("Computer Networks")
+        };
+
+        System.out.println("\n--- Student List ---");
+        for (Student s : students) {
+            s.displayDetails();
         }
 
-        for(Course c: course){
-            c.display();
+        System.out.println("\n--- Course List ---");
+        for (Course c : courses) {
+            c.displayDetails();
         }
-        System.out.println("Welcome");
-}       
+
+        // Attendance log
+        List<AttendanceRecord> attendanceLog = new ArrayList<>();
+        attendanceLog.add(new AttendanceRecord(students[0].getStudentId(), courses[0].getCourseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(students[1].getStudentId(), courses[1].getCourseId(), "Absent"));
+        attendanceLog.add(new AttendanceRecord(students[2].getStudentId(), courses[2].getCourseId(), "Late")); // Invalid test
+
+        System.out.println("\n--- Attendance Log ---");
+        for (AttendanceRecord record : attendanceLog) {
+            record.displayRecord();
+        }
+    }
 }
