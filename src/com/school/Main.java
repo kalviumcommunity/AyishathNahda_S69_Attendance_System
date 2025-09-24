@@ -1,47 +1,40 @@
-// src/com/school/Main.java
 package com.school;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Welcome to the Attendance Management System!");
+public class Main{
+    public static void main(String[] args){
+        Student[] student = new Student[2];
+        student[0] = new Student("Tom","A");
+        student[1] = new Student("Karl","A");
+        Course[] course = new Course[2];
+        course[0] = new Course("abc");
+        course[1] = new Course("abd");
+        Teacher[] teachers = new Teacher[2];
+        teachers[0] = new Teacher("Tom","English");
+        teachers[1] = new Teacher("Karl","Computer Science");
+        Staff[] staffs = new Staff[2];
+        staffs[0] = new Staff("Tom","Main");
+        staffs[1] = new Staff("Karl","Sub");
+        ArrayList<AttendanceRecord> attendanceLog = new ArrayList<AttendanceRecord>();
+        attendanceLog.add(new AttendanceRecord(student[0].getId(), course[0].getCourseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(student[1].getId(),course[1].getCourseId() ,"null"));
 
-        // Students
-        Student[] students = {
-            new Student("Husky"),
-            new Student("Minnu"),
-            new Student("Supp"),
-            new Student("Bhanu")
-        };
+        for(AttendanceRecord attend : attendanceLog){
+            attend.displayRecord();
+        }
 
-        // Courses
-        Course[] courses = {
-            new Course("DBMS"),
-            new Course("OOPS"),
-            new Course("Computer Networks")
-        };
+        for(Course c: course){
+            c.display();
+        }
 
-        System.out.println("\n--- Student List ---");
-        for (Student s : students) {
+        for(Teacher t: teachers){
+            t.displayDetails();
+        }
+
+        for(Staff s: staffs){
             s.displayDetails();
         }
-
-        System.out.println("\n--- Course List ---");
-        for (Course c : courses) {
-            c.displayDetails();
-        }
-
-        // Attendance log
-        List<AttendanceRecord> attendanceLog = new ArrayList<>();
-        attendanceLog.add(new AttendanceRecord(students[0].getStudentId(), courses[0].getCourseId(), "Present"));
-        attendanceLog.add(new AttendanceRecord(students[1].getStudentId(), courses[1].getCourseId(), "Absent"));
-        attendanceLog.add(new AttendanceRecord(students[2].getStudentId(), courses[2].getCourseId(), "Late")); // Invalid test
-
-        System.out.println("\n--- Attendance Log ---");
-        for (AttendanceRecord record : attendanceLog) {
-            record.displayRecord();
-        }
-    }
+        System.out.println("Welcome");
+}       
 }

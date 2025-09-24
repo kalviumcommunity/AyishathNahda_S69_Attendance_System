@@ -1,28 +1,24 @@
-// src/com/school/Student.java
 package com.school;
 
-public class Student {
-    private static int nextStudentIdCounter = 1; // auto ID generator
-    private String name;
-    private int studentId;
+public class Student extends Person {
+    private String gradeLevel;
 
-    public Student(String name) {
-        this.name = name;
-        this.studentId = nextStudentIdCounter++;
+    public Student(String name, String gradeLevel) {
+        super(name);
+        this.gradeLevel = gradeLevel;
     }
 
+    // public int getStudentId() {
+    //     return studentId;
+    // }
 
-    // Getter for studentId
-    public int getStudentId() {
-        return studentId;
-    }
+    // public String getName() {
+    //     return name;
+    // }
 
-    // Getter for name
-    public String getName() {
-        return name;
+    public void displayDetails(){
+       super.displayDetails();
+       System.out.println("Grade Level: " + gradeLevel);
     }
-
-    public void displayDetails() {
-        System.out.println("Student ID: S" + studentId + ", Name: " + name);
-    }
+    
 }
