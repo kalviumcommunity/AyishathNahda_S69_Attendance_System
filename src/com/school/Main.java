@@ -42,4 +42,4 @@ public class Main{
         storage.saveData(courses, "courses.txt");
         storage.saveData(records, "attendance_log.txt");
 }       
-}
+} //
