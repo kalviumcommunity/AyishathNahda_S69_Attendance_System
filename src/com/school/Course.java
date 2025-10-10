@@ -1,13 +1,13 @@
 package com.school;
 
-public class Course implements Storable{
+public class Course implements Storable {
+    private static int nextCourseId = 101;
     private int courseId;
     private String courseName;
-    private static int nextCourseIdCounter = 1;
 
     public Course(String courseName) {
+        this.courseId = nextCourseId++;
         this.courseName = courseName;
-        this.courseId = nextCourseIdCounter++;
     }
 
     public int getCourseId() {
@@ -18,12 +18,12 @@ public class Course implements Storable{
         return courseName;
     }
 
-    @Override
-    public String toDataString(){
-        return "Course ID: " + courseId + ", Course: " + courseName;
+    public void displayDetails() {
+        System.out.println("Course ID: " + courseId + ", Course Name: " + courseName);
     }
 
-    public void display(){
-        System.out.println("Course ID: C"+this.courseId+" , Course Name: "+ this.courseName);
+    @Override
+    public String toDataString() {
+        return courseId + "," + courseName;
     }
 }

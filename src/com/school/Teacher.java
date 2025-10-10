@@ -1,15 +1,22 @@
 package com.school;
 
-public class Teacher extends Person{
-    public String subjectTaught;
+public class Teacher extends Person {
+    private String subjectTaught;
 
-    public Teacher(String name, String subjectTaught){
+    // Constructor
+    public Teacher(String name, String subjectTaught) {
         super(name);
         this.subjectTaught = subjectTaught;
     }
-    
-    public void displayDetails(){
+
+    public String getSubjectTaught() {
+        return subjectTaught;
+    }
+
+    @Override
+    public void displayDetails() {
         super.displayDetails();
-        System.out.println("Subject: " + subjectTaught+", Role: Teacher");
+        System.out.println("Subject Taught: " + subjectTaught);
+        System.out.println("Role: Teacher");
     }
 }

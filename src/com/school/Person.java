@@ -1,24 +1,28 @@
 package com.school;
 
 public class Person {
-    private static int nextIdCounter;
+    private static int nextIdCounter = 1; // auto-increment counter
     protected int id;
     protected String name;
 
-    public Person(String name){
-        this.name = name;
+    // Constructor
+    public Person(String name) {
         this.id = nextIdCounter++;
+        this.name = name;
     }
 
-    public int getId(){
+    // Getters
+    public int getId() {
         return id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void displayDetails(){
-        System.out.println("ID: " + id + ", Name: " + name);
+    // Display details
+    public void displayDetails() {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
     }
 }
